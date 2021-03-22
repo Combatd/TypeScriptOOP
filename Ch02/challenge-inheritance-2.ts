@@ -21,3 +21,31 @@ export class User {
         return this.email === email;
     }
 }
+
+export class Admin extends User {
+    constructor(firstName: string, lastName: string, email: string) {
+        super();
+    }
+}
+
+class Guest implements User {
+    firstName: string;
+    lastName: string;
+    email: string;
+    age: number;
+
+    get fullName(): string {
+        return `A guest has arrived: ${this.firstName} ${this.lastName}`;
+    }
+
+    doesEmailMatch(email: string): boolean {
+        if (this.email === email) {
+            console.log('Email is matching');
+            return true;
+        } else {
+            console.log('Email is not matching');
+            return false;
+        }
+        
+    }
+}
