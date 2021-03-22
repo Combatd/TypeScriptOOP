@@ -29,7 +29,7 @@ export class SuperAdmin extends BaseUser {
     }
 
     // override 
-    public hasAllAccess(): boolean {
+    public hasAllAccess(user = new User('Dylan', 'Israel', 32)): boolean {
         return true;
     }
 
