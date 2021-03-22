@@ -12,3 +12,19 @@ export class Animal {
 }
 
 // Derived / Child Class(s)
+export class Dog extends Animal {
+    woof(): string {
+        return 'WOOF! WOOF! WOOF!';
+    }
+}
+const dog = new Dog(2, 4, 'Gator');
+dog.name;
+
+export class Cat extends Animal {
+    meow(): string {
+        return 'MEOW! HISS! HISS!';
+    }
+}
+
+const cat = new Cat(19, 4, 'Baby');
+cat.age;
