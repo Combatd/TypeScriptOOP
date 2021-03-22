@@ -9,9 +9,11 @@
  */
 
 export class User {
-    firstName: string;
-    lastName: string;
-    email: string;
+    public readonly id: string;
+    public firstName: string;
+    public lastName: string;
+    public email: string;
+    protected phoneNumber: string;
 
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`;
@@ -20,6 +22,7 @@ export class User {
     doesEmailMatch(email: string): boolean {
         return this.email === email;
     }
+
 }
 
 export class Admin extends User {
@@ -29,5 +32,10 @@ export class Admin extends User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    // instance of User, should be able to access protected attribute
+    private get getPhoneNumber(): string {
+        return this.phoneNumber;
     }
 }
