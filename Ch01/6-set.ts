@@ -1,7 +1,16 @@
 export class Message {
     title: string;
     message: string;
-    isSent: boolean;
+    private _isSent: boolean;
+    // setter methods update data while still performing logic
+    set isSent(value: boolean) {
+        this._isSent = value;
+    }
+
+    get isSent(): boolean {
+        return this._isSent;
+    }
+    deliveryDate: Date;
     
     constructor(title: string, message: string) {
         this.title = title;
@@ -24,5 +33,6 @@ const message = new Message(
     'New Course!!! Just $9.99!!!',
     'Check out our latest course on OOP with TypeScript!'
 );
+message.isSent = true; // setter being invoked
 message.messageStatus;
 message.previewMessage();
